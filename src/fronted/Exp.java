@@ -1,13 +1,17 @@
 package fronted;
 
-public class Exp extends Node{
+public class Exp extends Node {
     private AddExp addExp;
 
-    public Exp(AddExp addExp){
+    public Exp(AddExp addExp) {
         this.addExp = addExp;
     }
 
-    public void print(){
+    public AddExp getAddExp() {
+        return addExp;
+    }
+
+    public void print() {
         addExp.print();
         System.out.println("<Exp>");
     }

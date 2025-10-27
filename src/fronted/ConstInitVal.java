@@ -2,22 +2,30 @@ package fronted;
 
 import java.util.ArrayList;
 
-public class ConstInitVal extends Node{
+public class ConstInitVal extends Node {
     private int type;
     private ArrayList<ConstExp> constExps = new ArrayList<>();
 
-    public ConstInitVal(int type,ArrayList<ConstExp> constExps){
+    public ConstInitVal(int type, ArrayList<ConstExp> constExps) {
         this.type = type;
         this.constExps = constExps;
     }
 
-    public void print(){
-        if(type == 0){
+    public int getType() {
+        return type;
+    }
+
+    public ArrayList<ConstExp> getConstExps() {
+        return constExps;
+    }
+
+    public void print() {
+        if (type == 0) {
             constExps.get(0).print();
-        }else{
+        } else {
             System.out.println(TokenType.LBRACE.print());
-            for(int i = 0;i < constExps.size();i++){
-                if(i > 0){
+            for (int i = 0; i < constExps.size(); i++) {
+                if (i > 0) {
                     System.out.println(TokenType.COMMA.print());
                 }
                 constExps.get(i).print();

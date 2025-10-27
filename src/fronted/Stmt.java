@@ -1,4 +1,4 @@
 package fronted;
 
-public abstract class Stmt extends Node{
+public abstract class Stmt extends Node {
 }

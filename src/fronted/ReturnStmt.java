@@ -1,15 +1,25 @@
 package fronted;
 
-public class ReturnStmt extends Stmt{
+public class ReturnStmt extends Stmt {
+    private Token token;
     private Exp exp;
 
-    public ReturnStmt(Exp exp){
+    public ReturnStmt(Token token, Exp exp) {
+        this.token = token;
         this.exp = exp;
     }
 
-    public void print(){
+    public Exp getExp() {
+        return exp;
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void print() {
         System.out.println(TokenType.RETURNTK.print());
-        if(exp != null){
+        if (exp != null) {
             exp.print();
         }
         System.out.println(TokenType.SEMICN.print());

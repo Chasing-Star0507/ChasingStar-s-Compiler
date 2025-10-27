@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class ErrorHandler {
     private static ArrayList<ErrorToken> errorTokens = new ArrayList<>();
 
-    public static void addError(ErrorToken errorToken){
+    public static void addError(ErrorToken errorToken) {
         errorTokens.add(errorToken);
     }
 

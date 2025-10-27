@@ -46,11 +46,11 @@ public enum TokenType {
         this.name = name;
     }
 
-    public String toString(){
+    public String toString() {
         return name;
     }
 
-    public String print(){
+    public String print() {
         return this.name() + " " + this.toString();
     }
 

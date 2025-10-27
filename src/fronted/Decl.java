@@ -1,4 +1,4 @@
 package fronted;
 
-public abstract class Decl extends Node{
+public abstract class Decl extends Node {
 }

@@ -2,16 +2,20 @@ package fronted;
 
 import java.util.ArrayList;
 
-public class ForStmt extends Node{
+public class ForStmt extends Node {
     private ArrayList<LValExpStmt> lValExpStmts = new ArrayList<>();
 
-    public ForStmt(ArrayList<LValExpStmt> lValExpStmts){
+    public ForStmt(ArrayList<LValExpStmt> lValExpStmts) {
         this.lValExpStmts = lValExpStmts;
     }
 
-    public void print(){
-        for(int i = 0;i < lValExpStmts.size();i++){
-            if(i > 0){
+    public ArrayList<LValExpStmt> getlValExpStmts() {
+        return lValExpStmts;
+    }
+
+    public void print() {
+        for (int i = 0; i < lValExpStmts.size(); i++) {
+            if (i > 0) {
                 System.out.println(TokenType.COMMA.print());
             }
             lValExpStmts.get(i).forStmtPrint();

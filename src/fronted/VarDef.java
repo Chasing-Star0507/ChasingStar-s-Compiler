@@ -1,24 +1,36 @@
 package fronted;
 
-public class VarDef extends Node{
+public class VarDef extends Node {
     private Token ident;
     private ConstExp constExp = null;
     private InitVal initVal = null;
 
-    public VarDef(Token ident,ConstExp constExp,InitVal initVal){
+    public VarDef(Token ident, ConstExp constExp, InitVal initVal) {
         this.ident = ident;
         this.constExp = constExp;
         this.initVal = initVal;
     }
 
-    public void print(){
+    public Token getIdent() {
+        return ident;
+    }
+
+    public ConstExp getConstExp() {
+        return constExp;
+    }
+
+    public InitVal getInitVal() {
+        return initVal;
+    }
+
+    public void print() {
         System.out.println(ident.toString());
-        if(constExp != null){
+        if (constExp != null) {
             System.out.println(TokenType.LBRACK.print());
             constExp.print();
             System.out.println(TokenType.RBRACK.print());
         }
-        if(initVal != null){
+        if (initVal != null) {
             System.out.println(TokenType.ASSIGN.print());
             initVal.print();
         }

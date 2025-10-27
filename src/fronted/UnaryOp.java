@@ -1,13 +1,13 @@
 package fronted;
 
-public class UnaryOp extends Node{
+public class UnaryOp extends Node {
     private Token op;
 
-    public UnaryOp(Token op){
+    public UnaryOp(Token op) {
         this.op = op;
     }
 
-    public void print(){
+    public void print() {
         System.out.println(op.toString());
         System.out.println("<UnaryOp>");
     }

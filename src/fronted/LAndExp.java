@@ -2,16 +2,20 @@ package fronted;
 
 import java.util.ArrayList;
 
-public class LAndExp extends Node{
+public class LAndExp extends Node {
     private ArrayList<EqExp> eqExps = new ArrayList<>();
 
-    public LAndExp(ArrayList<EqExp> eqExps){
+    public LAndExp(ArrayList<EqExp> eqExps) {
         this.eqExps = eqExps;
     }
 
-    public void print(){
-        for(int i = 0;i < eqExps.size();i++){
-            if(i > 0){
+    public ArrayList<EqExp> getEqExps() {
+        return eqExps;
+    }
+
+    public void print() {
+        for (int i = 0; i < eqExps.size(); i++) {
+            if (i > 0) {
                 System.out.println("<LAndExp>");
                 System.out.println(TokenType.AND.print());
             }

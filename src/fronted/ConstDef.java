@@ -1,19 +1,31 @@
 package fronted;
 
-public class ConstDef extends Node{
+public class ConstDef extends Node {
     private Token ident;
     private ConstExp constExp;
     private ConstInitVal constInitival;
 
-    public ConstDef(Token ident, ConstExp constExp, ConstInitVal constInitival){
+    public ConstDef(Token ident, ConstExp constExp, ConstInitVal constInitival) {
         this.ident = ident;
         this.constExp = constExp;
         this.constInitival = constInitival;
     }
 
-    public void print(){
+    public Token getIdent() {
+        return ident;
+    }
+
+    public ConstInitVal getConstInitival() {
+        return constInitival;
+    }
+
+    public ConstExp getConstExp() {
+        return constExp;
+    }
+
+    public void print() {
         System.out.println(ident.toString());
-        if(constExp != null){
+        if (constExp != null) {
             System.out.println(TokenType.LBRACK.print());
             constExp.print();
             System.out.println(TokenType.RBRACK.print());

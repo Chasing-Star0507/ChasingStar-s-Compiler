@@ -5,13 +5,17 @@ public class Token {
     private String tokenContent;
     private int lineNum;
 
-    public Token(TokenType tokenType,String tokenContent,int lineNum){
+    public Token(TokenType tokenType, String tokenContent, int lineNum) {
         this.tokenType = tokenType;
         this.tokenContent = tokenContent;
         this.lineNum = lineNum;
     }
 
-    public TokenType getTokenType(){
+    public String getTokenContent() {
+        return tokenContent;
+    }
+
+    public TokenType getTokenType() {
         return tokenType;
     }
 
@@ -19,7 +23,7 @@ public class Token {
         return lineNum;
     }
 
-    public String toString(){
+    public String toString() {
         return tokenType.name() + " " + tokenContent;
     }
 }

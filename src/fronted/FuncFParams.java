@@ -2,16 +2,20 @@ package fronted;
 
 import java.util.ArrayList;
 
-public class FuncFParams extends Node{
+public class FuncFParams extends Node {
     private ArrayList<FuncFParam> funcFParams = new ArrayList<>();
 
-    public FuncFParams(ArrayList<FuncFParam> funcFParams){
+    public FuncFParams(ArrayList<FuncFParam> funcFParams) {
         this.funcFParams = funcFParams;
     }
 
-    public void print(){
-        for(int i = 0;i < funcFParams.size();i++){
-            if(i > 0){
+    public ArrayList<FuncFParam> getFuncFParams() {
+        return funcFParams;
+    }
+
+    public void print() {
+        for (int i = 0; i < funcFParams.size(); i++) {
+            if (i > 0) {
                 System.out.println(TokenType.COMMA.print());
             }
             funcFParams.get(i).print();

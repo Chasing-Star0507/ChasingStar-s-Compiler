@@ -1,13 +1,17 @@
 package fronted;
 
-public class BlockStmt extends Stmt{
+public class BlockStmt extends Stmt {
     private Block block;
 
-    public BlockStmt(Block block){
+    public BlockStmt(Block block) {
         this.block = block;
     }
 
-    public void print(){
+    public Block getBlock() {
+        return block;
+    }
+
+    public void print() {
         block.print();
         System.out.println("<Stmt>");
     }
