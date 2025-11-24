@@ -15,7 +15,7 @@ public class ToParam {
         if (unaryExp.getPrimaryExp() != null) {
             return primaryToParam(unaryExp.getPrimaryExp());
         } else if (unaryExp.getIdent() != null) {
-            TableManager tableManager = TableManager.getINSTANCE();
+            TableManager tableManager = TableManager.getINSTANCE1();
             Symbol symbol = tableManager.getSymbol(unaryExp.getIdent().getTokenContent());
             if (symbol instanceof FuncSymbol) {
                 return new ParamSymbol(unaryExp.getIdent().getTokenContent(), ((FuncSymbol) symbol).getType(), 0);

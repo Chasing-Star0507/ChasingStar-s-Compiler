@@ -1,13 +1,18 @@
 package middle;
 
 public class TableManager {
-    private static TableManager INSTANCE = new TableManager();
+    private static TableManager INSTANCE1 = new TableManager();
+    private static TableManager INSTANCE2 = new TableManager();
     private SymbolTable currentTable = new SymbolTable(null, null, 1);
     private int loopLevel = 0;
     private int cnt = 1;
 
-    public static TableManager getINSTANCE() {
-        return INSTANCE;
+    public static TableManager getINSTANCE1() {
+        return INSTANCE1;
+    }
+
+    public static TableManager getINSTANCE2(){
+        return INSTANCE2;
     }
 
     public SymbolTable getCurrentTable() {

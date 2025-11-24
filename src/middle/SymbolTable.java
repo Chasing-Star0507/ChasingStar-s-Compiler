@@ -41,18 +41,19 @@ public class SymbolTable {
     }
 
     public boolean isContainSymbol(String name) {
-        if (name.equals("getint")) {
-            return true;
-        }
+//        if (name.equals("getint")) {
+//            return true;
+//        }
         return symbols.containsKey(name);
     }
 
     public Symbol getSymbol(String name) {
-        if (name.equals("getint")) {
-            return new FuncSymbol("getint", SymbolType.INT, new ArrayList<>());
-        } else {
-            return symbols.get(name);
-        }
+//        if (name.equals("getint")) {
+//            return new FuncSymbol("getint", SymbolType.INT, new ArrayList<>());
+//        } else {
+//            return symbols.get(name);
+//        }
+        return symbols.get(name);
     }
 
     public void addChild(SymbolTable symbolTable) {

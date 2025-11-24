@@ -4,10 +4,23 @@ import java.util.ArrayList;
 
 public class FuncSymbol extends Symbol {
     private ArrayList<ParamSymbol> paramSymbols = new ArrayList<>();
+    private Value llvmValue;
 
     public FuncSymbol(String name, SymbolType type, ArrayList<ParamSymbol> paramSymbols) {
         super(name, type);
         this.paramSymbols = paramSymbols;
+    }
+
+    public void setLlvmValue(Value value){
+        this.llvmValue = value;
+//        System.out.println("adjust");
+//        if(llvmValue != null){
+//            System.out.println("true");
+//        }
+    }
+
+    public Value getLlvmValue(){
+        return llvmValue;
     }
 
     public ArrayList<ParamSymbol> getParamSymbols() {

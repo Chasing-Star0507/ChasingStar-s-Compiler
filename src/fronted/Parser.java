@@ -47,7 +47,6 @@ public class Parser {
             decls.add(parseDecl());
         }
 //        System.out.println(decls.size());
-//        System.out.println(1);
 //        for(Decl decl : decls){
 //            decl.print();
 //        }
@@ -113,6 +112,10 @@ public class Parser {
         if (tokens.get(pos).getTokenType() == TokenType.LBRACE) {
             type = 1;
             pos++;
+            if(tokens.get(pos).getTokenType() == TokenType.RBRACE){
+                pos++;
+                return new ConstInitVal(type,constExps);
+            }
             constExps.add(parseConstExp());
             while (tokens.get(pos).getTokenType() != TokenType.RBRACE) {
                 pos++;
@@ -168,6 +171,10 @@ public class Parser {
         if (tokens.get(pos).getTokenType() == TokenType.LBRACE) {
             type = 1;
             pos++;
+            if(tokens.get(pos).getTokenType() == TokenType.RBRACE){
+                pos++;
+                return new InitVal(type,exps);
+            }
             exps.add(parseExp());
             while (tokens.get(pos).getTokenType() != TokenType.RBRACE) {
                 pos++;

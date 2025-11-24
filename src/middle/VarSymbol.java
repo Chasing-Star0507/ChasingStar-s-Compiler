@@ -3,11 +3,21 @@ package middle;
 public class VarSymbol extends Symbol {
     private boolean isConstant;
     private int dimension;
+    private InitialValue initialValue = null;
+    private Value llvmValue = null;
 
     public VarSymbol(String name, SymbolType type, boolean isConstant, int dimension) {
         super(name, type);
         this.isConstant = isConstant;
         this.dimension = dimension;
+        this.initialValue = null;
+    }
+
+    public VarSymbol(String name, SymbolType type, boolean isConstant, int dimension,InitialValue initialValue) {
+        super(name, type);
+        this.isConstant = isConstant;
+        this.dimension = dimension;
+        this.initialValue = initialValue;
     }
 
     public boolean isConstant() {
@@ -16,6 +26,26 @@ public class VarSymbol extends Symbol {
 
     public int getDimension() {
         return dimension;
+    }
+
+    public void setLlvmValue(Value value){
+        this.llvmValue = value;
+    }
+
+    public void setInitialValue(InitialValue initialValue){
+        this.initialValue = initialValue;
+    }
+
+    public InitialValue getInitialValue(){
+        return initialValue;
+    }
+
+    public Value getLlvmValue(){
+        return llvmValue;
+    }
+
+    public int getConstValue(int index){
+        return initialValue.getElements().get(index);
     }
 
     public String toString() {

@@ -1,6 +1,6 @@
 package fronted;
 
-public class PrimaryExp extends Node {
+public class PrimaryExp extends Node implements Calculation{
     private Exp exp;
     private LVal lVal;
     private Number number;
@@ -34,5 +34,15 @@ public class PrimaryExp extends Node {
             number.print();
         }
         System.out.println("<PrimaryExp>");
+    }
+
+    public int calculate(){
+        if(exp != null){
+            return exp.calculate();
+        }else if(lVal != null){
+            return lVal.calculate();
+        }else{
+            return number.calculate();
+        }
     }
 }

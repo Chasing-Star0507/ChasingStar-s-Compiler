@@ -2,7 +2,7 @@ package fronted;
 
 import java.util.ArrayList;
 
-public class AddExp extends Node {
+public class AddExp extends Node implements Calculation{
     private ArrayList<MulExp> mulExps;
     private ArrayList<Token> symbols;
 
@@ -28,5 +28,21 @@ public class AddExp extends Node {
             mulExps.get(i).print();
         }
         System.out.println("<AddExp>");
+    }
+
+    public int calculate(){
+        int res = 0;
+        for(int i = 0 ;i < mulExps.size(); i++){
+            if(i > 0){
+                if(symbols.get(i -1).getTokenType() == TokenType.PLUS){
+                    res += mulExps.get(i).calculate();
+                }else if(symbols.get(i -1).getTokenType() == TokenType.MINU){
+                    res -= mulExps.get(i).calculate();
+                }
+            }else{
+                res += mulExps.get(i).calculate();
+            }
+        }
+        return res;
     }
 }

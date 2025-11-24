@@ -1,5 +1,7 @@
+import backed.MipsBuilder;
 import fronted.*;
-import middle.TableManager;
+import middle.IRBuilder;
+import middle.Module;
 import middle.Visitor;
 
 import java.io.IOException;
@@ -14,18 +16,31 @@ public class Compiler {
         String input = Files.readString(Paths.get("testfile.txt"));
         Lexer lexer = new Lexer(input);
         ArrayList<Token> tokens = lexer.getTokens();
+//        PrintStream origin = System.out;
+//        System.setOut(new PrintStream("lexer.txt"));
+//        for(Token token : tokens){
+//            System.out.println(token);
+//        }
+//        System.setOut(origin);
         Parser parser = new Parser(tokens);
         CompUnit compUnit = parser.getCompUnit();
-        //compUnit.print();
+//        PrintStream origin = System.out;
+//        System.setOut(new PrintStream("parser.txt"));
+//        compUnit.print();
+//        System.setOut(origin);
         Visitor visitor = new Visitor(compUnit);
         visitor.visit();
         ArrayList<ErrorToken> errorTokens = ErrorHandler.getErrorTokens();
         if (errorTokens.isEmpty()) {
             //ToDo 记得把main的输出去掉
-            PrintStream origin = System.out;
-            System.setOut(new PrintStream("symbol.txt"));
-            TableManager.getINSTANCE().getCurrentTable().print();
-            System.setOut(origin);
+            IRBuilder ir = new IRBuilder(compUnit);
+            ir.build();
+//            PrintStream origin = System.out;
+//            System.setOut(new PrintStream("llvm_ir.txt"));
+//            Module.getINSTANCE().print();
+//            System.setOut(origin);
+            MipsBuilder mipsBuilder = new MipsBuilder(Module.getINSTANCE());
+            mipsBuilder.build();
         } else {
             PrintStream origin = System.out;
             System.setOut(new PrintStream("error.txt"));

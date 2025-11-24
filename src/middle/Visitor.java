@@ -9,8 +9,9 @@ import java.util.regex.Pattern;
 public class Visitor {
     private CompUnit compUnit;
     private SymbolType curFuncType = null;
-    private TableManager tableManager = TableManager.getINSTANCE();
+    private TableManager tableManager = TableManager.getINSTANCE1();
 
+    //ToDo getInt记得改一下
     public Visitor(CompUnit compUnit) {
         this.compUnit = compUnit;
     }
@@ -20,6 +21,7 @@ public class Visitor {
     }
 
     private void visitCompUnit() {
+        setLibFunctions();
         for (Decl decl : compUnit.getDecls()) {
             visitDecl(decl);
         }
@@ -27,6 +29,11 @@ public class Visitor {
             visitFuncDef(funcDef);
         }
         visitMainFuncDef(compUnit.getMainFuncDef());
+    }
+
+    private void setLibFunctions(){
+        FuncSymbol funcSymbol =  new FuncSymbol("getint",SymbolType.INT,new ArrayList<>());
+        tableManager.addSymbol(funcSymbol);
     }
 
     private void visitDecl(Decl decl) {
@@ -175,7 +182,7 @@ public class Visitor {
         if (tableManager.isFuncTable()) {
             if (curFuncType == SymbolType.INT) {
                 ArrayList<BlockItem> blockItems = block.getBlockItems();
-                if (blockItems == null || blockItems.get(blockItems.size() - 1).getStmt() == null || !(blockItems.get(blockItems.size() - 1).getStmt() instanceof ReturnStmt)) {
+                if (blockItems.isEmpty() || blockItems.get(blockItems.size() - 1).getStmt() == null || !(blockItems.get(blockItems.size() - 1).getStmt() instanceof ReturnStmt)) {
                     ErrorHandler.addError(new ErrorToken(block.getEndLineNum(), "g"));
                 }
             }
@@ -280,6 +287,9 @@ public class Visitor {
     }
 
     private void visitPrintfStmt(PrintfStmt printfStmt) {
+        for (Exp exp : printfStmt .getExps()) {
+            visitExp(exp);
+        }
         String stringConst = printfStmt.getToken().getTokenContent();
         int cnt = 0;
         Pattern pattern = Pattern.compile("%d");
@@ -308,6 +318,7 @@ public class Visitor {
 
     private void visitLVal(LVal lVal) {
         if (tableManager.getSymbol(lVal.getIdent().getTokenContent()) == null) {
+            //System.out.println("adjust");
             ErrorHandler.addError(new ErrorToken(lVal.getIdent().getLineNum(), "c"));
         }
         if (lVal.getExp() != null) {

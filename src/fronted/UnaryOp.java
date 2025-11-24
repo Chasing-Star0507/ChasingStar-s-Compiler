@@ -7,6 +7,10 @@ public class UnaryOp extends Node {
         this.op = op;
     }
 
+    public Token getOp() {
+        return op;
+    }
+
     public void print() {
         System.out.println(op.toString());
         System.out.println("<UnaryOp>");
