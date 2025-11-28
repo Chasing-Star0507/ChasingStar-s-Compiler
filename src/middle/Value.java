@@ -7,12 +7,12 @@ public class Value {
     private ValueType valueType;
     private ArrayList<User> users = new ArrayList<>();
 
-    public Value(String name,ValueType valueType){
+    public Value(String name, ValueType valueType) {
         this.name = name;
         this.valueType = valueType;
     }
 
-    public void addUse(User user){
+    public void addUse(User user) {
         users.add(user);
     }
 
@@ -28,7 +28,7 @@ public class Value {
         return users;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 }

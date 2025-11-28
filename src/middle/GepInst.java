@@ -1,13 +1,13 @@
 package middle;
 
-public class GepInst extends Instruction{
+public class GepInst extends Instruction {
     public GepInst(Value value, Value index) {
         super(new PointType(IntegerType.i32), OperatorType.GEP);
         addOperand(value);
         addOperand(index);
     }
 
-    public void print(){
+    public void print() {
         Value pointer = getOperands().get(0);
         PointType pointerType = (PointType) pointer.getValueType();
         ValueType targetType = pointerType.getTargetType();

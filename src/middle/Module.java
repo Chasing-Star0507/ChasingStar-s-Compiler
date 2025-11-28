@@ -2,33 +2,33 @@ package middle;
 
 import java.util.ArrayList;
 
-public class Module extends Value{
+public class Module extends Value {
     private static Module INSTANCE = new Module();
     private ArrayList<String> libraryFunctions = new ArrayList<>();
     private ArrayList<ConstString> constStrings = new ArrayList<>();
     private ArrayList<GlobalVar> globalVars = new ArrayList<>();
     private ArrayList<Function> functions = new ArrayList<>();
 
-    public static Module getINSTANCE(){
+    public static Module getINSTANCE() {
         return INSTANCE;
     }
 
-    public Module(){
-        super("wxq",new LabelType());
+    public Module() {
+        super("wxq", new LabelType());
         libraryFunctions.add("declare i32 @getint()");
         libraryFunctions.add("declare void @putint(i32)");
         libraryFunctions.add("declare void @putstr(i8*)");
     }
 
-    public void addGlobalVar(GlobalVar globalVar){
+    public void addGlobalVar(GlobalVar globalVar) {
         globalVars.add(globalVar);
     }
 
-    public void addFunction(Function function){
+    public void addFunction(Function function) {
         functions.add(function);
     }
 
-    public void addConstString(ConstString constString){
+    public void addConstString(ConstString constString) {
         constStrings.add(constString);
     }
 
@@ -48,20 +48,20 @@ public class Module extends Value{
         return functions;
     }
 
-    public void print(){
-        for(String s : libraryFunctions){
+    public void print() {
+        for (String s : libraryFunctions) {
             System.out.println(s);
         }
         System.out.println();
-        for(ConstString constString : constStrings){
+        for (ConstString constString : constStrings) {
             constString.print();
         }
         System.out.println();
-        for(GlobalVar globalVar : globalVars){
+        for (GlobalVar globalVar : globalVars) {
             globalVar.print();
         }
         System.out.println();
-        for(Function function : functions){
+        for (Function function : functions) {
             function.print();
             System.out.println();
         }

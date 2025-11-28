@@ -1,10 +1,9 @@
 package fronted;
 
-import middle.Symbol;
 import middle.TableManager;
 import middle.VarSymbol;
 
-public class LVal extends Node implements Calculation{
+public class LVal extends Node implements Calculation {
     private Token ident;
     private Exp exp;
 
@@ -31,7 +30,7 @@ public class LVal extends Node implements Calculation{
         System.out.println("<LVal>");
     }
 
-    public int calculate(){
+    public int calculate() {
         TableManager tableManager = TableManager.getINSTANCE2();
         VarSymbol varSymbol = (VarSymbol) tableManager.getSymbol(ident.getTokenContent());
         int length = 0;
@@ -44,9 +43,9 @@ public class LVal extends Node implements Calculation{
         if (varSymbol.getDimension() == 0) {
             return varSymbol.getConstValue(0);
         } else {
-            if(varSymbol.getInitialValue().getElements().size() > length){
+            if (varSymbol.getInitialValue().getElements().size() > length) {
                 return varSymbol.getConstValue(length);
-            }else{
+            } else {
                 return 0;
             }
         }

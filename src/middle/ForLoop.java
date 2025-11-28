@@ -6,7 +6,7 @@ public class ForLoop {
     private BasicBlock loopBlock;
     private BasicBlock followBlock;
 
-    public ForLoop(BasicBlock conditionBlock,BasicBlock loopBlock,BasicBlock updateBlock,BasicBlock followBlock) {
+    public ForLoop(BasicBlock conditionBlock, BasicBlock loopBlock, BasicBlock updateBlock, BasicBlock followBlock) {
         this.conditionBlock = conditionBlock;
         this.loopBlock = loopBlock;
         this.updateBlock = updateBlock;

@@ -11,7 +11,7 @@ public class FuncSymbol extends Symbol {
         this.paramSymbols = paramSymbols;
     }
 
-    public void setLlvmValue(Value value){
+    public void setLlvmValue(Value value) {
         this.llvmValue = value;
 //        System.out.println("adjust");
 //        if(llvmValue != null){
@@ -19,7 +19,7 @@ public class FuncSymbol extends Symbol {
 //        }
     }
 
-    public Value getLlvmValue(){
+    public Value getLlvmValue() {
         return llvmValue;
     }
 

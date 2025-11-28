@@ -13,7 +13,7 @@ public class VarSymbol extends Symbol {
         this.initialValue = null;
     }
 
-    public VarSymbol(String name, SymbolType type, boolean isConstant, int dimension,InitialValue initialValue) {
+    public VarSymbol(String name, SymbolType type, boolean isConstant, int dimension, InitialValue initialValue) {
         super(name, type);
         this.isConstant = isConstant;
         this.dimension = dimension;
@@ -28,23 +28,23 @@ public class VarSymbol extends Symbol {
         return dimension;
     }
 
-    public void setLlvmValue(Value value){
+    public void setLlvmValue(Value value) {
         this.llvmValue = value;
     }
 
-    public void setInitialValue(InitialValue initialValue){
+    public void setInitialValue(InitialValue initialValue) {
         this.initialValue = initialValue;
     }
 
-    public InitialValue getInitialValue(){
+    public InitialValue getInitialValue() {
         return initialValue;
     }
 
-    public Value getLlvmValue(){
+    public Value getLlvmValue() {
         return llvmValue;
     }
 
-    public int getConstValue(int index){
+    public int getConstValue(int index) {
         return initialValue.getElements().get(index);
     }
 

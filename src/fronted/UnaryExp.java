@@ -1,6 +1,6 @@
 package fronted;
 
-public class UnaryExp extends Node implements Calculation{
+public class UnaryExp extends Node implements Calculation {
     private PrimaryExp primaryExp;
     private Token ident;
     private FuncRParams funcRParams;
@@ -52,14 +52,14 @@ public class UnaryExp extends Node implements Calculation{
         System.out.println("<UnaryExp>");
     }
 
-    public int calculate(){
+    public int calculate() {
         int res = 0;
         if (unaryOp != null && unaryExp != null) {
-            if(unaryOp.getOp().getTokenType() == TokenType.PLUS){
+            if (unaryOp.getOp().getTokenType() == TokenType.PLUS) {
                 res = unaryExp.calculate();
-            }else if(unaryOp.getOp().getTokenType() == TokenType.MINU){
+            } else if (unaryOp.getOp().getTokenType() == TokenType.MINU) {
                 res = -unaryExp.calculate();
-            }else if(unaryOp.getOp().getTokenType() == TokenType.NOT){
+            } else if (unaryOp.getOp().getTokenType() == TokenType.NOT) {
                 res = unaryExp.calculate() == 0 ? 1 : 0;
             }
         } else if (primaryExp != null) {

@@ -31,8 +31,8 @@ public class Visitor {
         visitMainFuncDef(compUnit.getMainFuncDef());
     }
 
-    private void setLibFunctions(){
-        FuncSymbol funcSymbol =  new FuncSymbol("getint",SymbolType.INT,new ArrayList<>());
+    private void setLibFunctions() {
+        FuncSymbol funcSymbol = new FuncSymbol("getint", SymbolType.INT, new ArrayList<>());
         tableManager.addSymbol(funcSymbol);
     }
 
@@ -287,7 +287,7 @@ public class Visitor {
     }
 
     private void visitPrintfStmt(PrintfStmt printfStmt) {
-        for (Exp exp : printfStmt .getExps()) {
+        for (Exp exp : printfStmt.getExps()) {
             visitExp(exp);
         }
         String stringConst = printfStmt.getToken().getTokenContent();

@@ -36,15 +36,15 @@ public enum Register {
 
     private String name;
 
-    Register(String name){
+    Register(String name) {
         this.name = name;
     }
 
-    public static Register getOffset(Register register, int offset){
+    public static Register getOffset(Register register, int offset) {
         return Register.values()[register.ordinal() + offset];
     }
 
-    public String toString(){
+    public String toString() {
         return name;
     }
 }

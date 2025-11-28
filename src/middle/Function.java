@@ -2,14 +2,14 @@ package middle;
 
 import java.util.ArrayList;
 
-public class Function extends User{
+public class Function extends User {
     private ValueType funcRetType;
     private ArrayList<BasicBlock> basicBlocks = new ArrayList<>();
     private ArrayList<FuncParam> funcParams = new ArrayList<>();
     private boolean isLibFunction = false;
 
-    public Function(String name,ValueType valueType){
-        super(name,new LabelType());
+    public Function(String name, ValueType valueType) {
+        super(name, new LabelType());
         this.funcRetType = valueType;
         Module.getINSTANCE().addFunction(this);
     }
@@ -20,15 +20,15 @@ public class Function extends User{
         this.isLibFunction = isBuiltIn;
     }
 
-    public void addBasicblock(BasicBlock basicBlock){
+    public void addBasicblock(BasicBlock basicBlock) {
         basicBlocks.add(basicBlock);
     }
 
-    public void addFuncParam(FuncParam funcParam){
+    public void addFuncParam(FuncParam funcParam) {
         funcParams.add(funcParam);
     }
 
-    public ValueType getReturnType(){
+    public ValueType getReturnType() {
         return funcRetType;
     }
 
@@ -48,28 +48,28 @@ public class Function extends User{
         return isLibFunction;
     }
 
-    public void print(){
+    public void print() {
         StringBuilder sb = new StringBuilder();
         sb.append("define dso_local ");
-        if(funcRetType.equals(IntegerType.i32)){
+        if (funcRetType.equals(IntegerType.i32)) {
             sb.append("i32 ");
-        }else if(funcRetType.equals(IntegerType.VOID)){
+        } else if (funcRetType.equals(IntegerType.VOID)) {
             sb.append("void ");
         }
         sb.append(getName());
         System.out.print(sb);
         System.out.print("(");
-        for(int i = 0;i < funcParams.size();i++){
-            if(i > 0){
+        for (int i = 0; i < funcParams.size(); i++) {
+            if (i > 0) {
                 System.out.print(", ");
                 funcParams.get(i).print();
-            }else{
+            } else {
                 funcParams.get(i).print();
             }
         }
         System.out.print(") ");
         System.out.println("{");
-        for(BasicBlock basicBlock : basicBlocks){
+        for (BasicBlock basicBlock : basicBlocks) {
             basicBlock.print();
         }
         System.out.println("}");

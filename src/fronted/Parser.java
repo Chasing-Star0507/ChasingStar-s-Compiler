@@ -112,9 +112,9 @@ public class Parser {
         if (tokens.get(pos).getTokenType() == TokenType.LBRACE) {
             type = 1;
             pos++;
-            if(tokens.get(pos).getTokenType() == TokenType.RBRACE){
+            if (tokens.get(pos).getTokenType() == TokenType.RBRACE) {
                 pos++;
-                return new ConstInitVal(type,constExps);
+                return new ConstInitVal(type, constExps);
             }
             constExps.add(parseConstExp());
             while (tokens.get(pos).getTokenType() != TokenType.RBRACE) {
@@ -171,9 +171,9 @@ public class Parser {
         if (tokens.get(pos).getTokenType() == TokenType.LBRACE) {
             type = 1;
             pos++;
-            if(tokens.get(pos).getTokenType() == TokenType.RBRACE){
+            if (tokens.get(pos).getTokenType() == TokenType.RBRACE) {
                 pos++;
-                return new InitVal(type,exps);
+                return new InitVal(type, exps);
             }
             exps.add(parseExp());
             while (tokens.get(pos).getTokenType() != TokenType.RBRACE) {

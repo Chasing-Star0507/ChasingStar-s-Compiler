@@ -2,17 +2,17 @@ package middle;
 
 import java.util.ArrayList;
 
-public class BasicBlock extends User{
+public class BasicBlock extends User {
     private ArrayList<Instruction> instructions = new ArrayList<>();
     private Function function;
 
-    public BasicBlock(String name){
-        super(name,new LabelType());
+    public BasicBlock(String name) {
+        super(name, new LabelType());
         this.function = IRData.getCurFunction();
         function.addBasicblock(this);
     }
 
-    public void addInstruction(Instruction instruction){
+    public void addInstruction(Instruction instruction) {
         instructions.add(instruction);
     }
 
@@ -24,9 +24,9 @@ public class BasicBlock extends User{
         return function;
     }
 
-    public void print(){
+    public void print() {
         System.out.println(getName() + ":");
-        for(Instruction instruction : instructions){
+        for (Instruction instruction : instructions) {
             instruction.print();
         }
     }

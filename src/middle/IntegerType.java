@@ -1,9 +1,9 @@
 package middle;
 
-public class IntegerType extends ValueType{
+public class IntegerType extends ValueType {
     private int bits;
 
-    public IntegerType(int bits){
+    public IntegerType(int bits) {
         this.bits = bits;
     }
 
@@ -12,7 +12,7 @@ public class IntegerType extends ValueType{
     public static IntegerType i8 = new IntegerType(8);
     public static IntegerType i1 = new IntegerType(1);
 
-    public String toString(){
+    public String toString() {
         return "i" + bits;
     }
 }

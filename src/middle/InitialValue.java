@@ -7,7 +7,7 @@ public class InitialValue {
     private int length;
     private ArrayList<Integer> elements;
 
-    public InitialValue(ValueType valueType,int length,ArrayList<Integer> integers){
+    public InitialValue(ValueType valueType, int length, ArrayList<Integer> integers) {
         this.valueType = valueType;
         this.length = length;
         this.elements = integers;
@@ -25,26 +25,26 @@ public class InitialValue {
         return elements;
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        if(valueType.equals(IntegerType.i32)){
-            if(elements.isEmpty()){
+        if (valueType.equals(IntegerType.i32)) {
+            if (elements.isEmpty()) {
                 sb.append("i32 0");
-            }else{
+            } else {
                 sb.append("i32 " + elements.get(0));
             }
-        }else{
+        } else {
             sb.append("[" + length + " x i32]");
-            if(elements.isEmpty()){
+            if (elements.isEmpty()) {
                 sb.append(" zeroinitializer");
-            }else{
+            } else {
                 sb.append(" [");
                 sb.append("i32 " + elements.get(0));
-                for(int i = 1;i < length;i++){
+                for (int i = 1; i < length; i++) {
                     sb.append(", ");
-                    if(i < elements.size()){
+                    if (i < elements.size()) {
                         sb.append("i32 " + elements.get(i));
-                    }else{
+                    } else {
                         sb.append("i32 0");
                     }
                 }

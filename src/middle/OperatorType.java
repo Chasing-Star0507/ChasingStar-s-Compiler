@@ -23,17 +23,17 @@ public enum OperatorType {
 
     private String name;
 
-    OperatorType(String name){
+    OperatorType(String name) {
         this.name = name;
     }
 
-    public static boolean isLogicCond(OperatorType opType){
+    public static boolean isLogicCond(OperatorType opType) {
         return opType == OperatorType.ICMP_EQ || opType == OperatorType.ICMP_NE ||
                 opType == OperatorType.ICMP_SLE || opType == OperatorType.ICMP_SLT ||
                 opType == OperatorType.ICMP_SGE || opType == OperatorType.ICMP_SGT;
     }
 
-    public String toString(){
+    public String toString() {
         return name;
     }
 }

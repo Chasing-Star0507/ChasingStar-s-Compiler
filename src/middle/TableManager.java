@@ -11,7 +11,7 @@ public class TableManager {
         return INSTANCE1;
     }
 
-    public static TableManager getINSTANCE2(){
+    public static TableManager getINSTANCE2() {
         return INSTANCE2;
     }
 

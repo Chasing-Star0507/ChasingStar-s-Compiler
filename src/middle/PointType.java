@@ -1,9 +1,9 @@
 package middle;
 
-public class PointType extends ValueType{
+public class PointType extends ValueType {
     private ValueType targetType;
 
-    public PointType(ValueType valueType){
+    public PointType(ValueType valueType) {
         this.targetType = valueType;
     }
 
@@ -11,7 +11,7 @@ public class PointType extends ValueType{
         return targetType;
     }
 
-    public String toString(){
+    public String toString() {
         return "i32*";
     }
 }

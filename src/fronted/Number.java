@@ -1,6 +1,6 @@
 package fronted;
 
-public class Number extends Node implements Calculation{
+public class Number extends Node implements Calculation {
     private Token intConst;
 
     public Number(Token intConst) {
@@ -12,7 +12,7 @@ public class Number extends Node implements Calculation{
         System.out.println("<Number>");
     }
 
-    public int calculate(){
+    public int calculate() {
         return Integer.valueOf(intConst.getTokenContent());
         //ToDo 要小心！！！
     }

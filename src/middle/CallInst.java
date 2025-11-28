@@ -5,7 +5,7 @@ import backed.Register;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class CallInst extends Instruction{
+public class CallInst extends Instruction {
     private HashSet<Register> registerHashSet = new HashSet<>();
 
     public CallInst(Function calledFunction, ArrayList<Value> parameters) {
@@ -19,34 +19,34 @@ public class CallInst extends Instruction{
         }
     }
 
-    public HashSet<Register> getActiveReg(){
+    public HashSet<Register> getActiveReg() {
         return new HashSet<>(registerHashSet);
     }
 
-    public void print(){
+    public void print() {
         StringBuilder sb = new StringBuilder();
         Function function = (Function) getOperands().get(0);
         sb.append(getOperands().get(0).getName() + "(");
-        for(int i = 1;i < getOperands().size();i++){
+        for (int i = 1; i < getOperands().size(); i++) {
             ValueType valueType = function.getFuncParams().get(i - 1).getValueType();
-            if(valueType instanceof IntegerType){
-                if(i > 1){
+            if (valueType instanceof IntegerType) {
+                if (i > 1) {
                     sb.append(", i32 " + getOperands().get(i).getName());
-                }else{
+                } else {
                     sb.append("i32 " + getOperands().get(i).getName());
                 }
-            }else{
-                if(i > 1){
+            } else {
+                if (i > 1) {
                     sb.append(", i32* " + getOperands().get(i).getName());
-                }else{
+                } else {
                     sb.append("i32* " + getOperands().get(i).getName());
                 }
             }
         }
         sb.append(")");
-        if(getValueType().equals(IntegerType.VOID)){
+        if (getValueType().equals(IntegerType.VOID)) {
             System.out.println("\tcall void " + sb);
-        }else{
+        } else {
             System.out.println("\t" + getName() + " = " + "call i32 " + sb);
         }
     }

@@ -1,6 +1,6 @@
 package fronted;
 
-public class ConstExp extends Node implements Calculation{
+public class ConstExp extends Node implements Calculation {
     private AddExp addExp;
 
     public ConstExp(AddExp addExp) {
@@ -16,7 +16,7 @@ public class ConstExp extends Node implements Calculation{
         System.out.println("<ConstExp>");
     }
 
-    public int calculate(){
+    public int calculate() {
         return addExp.calculate();
     }
 }

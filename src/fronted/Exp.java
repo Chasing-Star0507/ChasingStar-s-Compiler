@@ -16,7 +16,7 @@ public class Exp extends Node implements Calculation {
         System.out.println("<Exp>");
     }
 
-    public int calculate(){
+    public int calculate() {
         return addExp.calculate();
     }
 }

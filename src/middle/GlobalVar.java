@@ -1,11 +1,11 @@
 package middle;
 
-public class GlobalVar extends User{
+public class GlobalVar extends User {
     private InitialValue initialValue;
     private boolean isConst;
 
-    public GlobalVar(String name,ValueType type,InitialValue initialValue,boolean isConst){
-        super(name,type);
+    public GlobalVar(String name, ValueType type, InitialValue initialValue, boolean isConst) {
+        super(name, type);
         this.initialValue = initialValue;
         this.isConst = isConst;
         //ToDo 这里要加一个判断条件
@@ -20,7 +20,7 @@ public class GlobalVar extends User{
         return isConst;
     }
 
-    public void print(){
+    public void print() {
 //        System.out.println(getName());
 //        System.out.print(" = dso_local" + (isConst ? " constant " : " global "));
 //        initialValue.print();

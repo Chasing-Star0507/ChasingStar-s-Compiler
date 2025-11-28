@@ -70,7 +70,7 @@ public class SymbolTable {
             if (symbol instanceof VarSymbol) {
                 System.out.println(counter + " " + ((VarSymbol) symbol).toString());
             } else if (symbol instanceof FuncSymbol) {
-                if(!symbol.getName().equals("main")){
+                if (!symbol.getName().equals("main")) {
                     System.out.println(counter + " " + ((FuncSymbol) symbol).toString());
                 }
             }

@@ -38,11 +38,11 @@ public enum AsmOp {
 
     private String op;
 
-    AsmOp(String op){
+    AsmOp(String op) {
         this.op = op;
     }
 
-    public String toString(){
+    public String toString() {
         return op;
     }
 }
