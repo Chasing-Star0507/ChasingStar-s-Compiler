@@ -139,6 +139,7 @@ public class IRBuilder {
         VarSymbol varSymbol = new VarSymbol(varDef.getIdent().getTokenContent(), symbolType, false, dimension);
         tableManager.addSymbol(varSymbol);
         if(isGlobal){
+            //ToDo 可能出现null 要小心！！
             ArrayList<Integer> integers = new ArrayList<>();
             if (varDef.getInitVal() != null) {
                 integers = calculateInitVal(varDef.getInitVal());

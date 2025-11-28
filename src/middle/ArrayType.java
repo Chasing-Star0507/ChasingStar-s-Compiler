@@ -9,6 +9,14 @@ public class ArrayType extends ValueType{
         this.valueType = valueType;
     }
 
+    public ValueType getValueType() {
+        return valueType;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
     public String toString(){
         return "[" + length + " x " + valueType.toString() + "]";
     }

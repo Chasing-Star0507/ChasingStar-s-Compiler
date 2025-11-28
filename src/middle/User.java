@@ -11,6 +11,7 @@ public class User extends Value{
 
     public void addOperand(Value value){
         operands.add(value);
+        value.addUse(this);
     }
 
     public ArrayList<Value> getOperands() {

@@ -1,8 +1,10 @@
 import backed.MipsBuilder;
+import backed.MipsFile;
 import fronted.*;
 import middle.IRBuilder;
 import middle.Module;
 import middle.Visitor;
+import optimize.Optimizer;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -39,8 +41,14 @@ public class Compiler {
 //            System.setOut(new PrintStream("llvm_ir.txt"));
 //            Module.getINSTANCE().print();
 //            System.setOut(origin);
-            MipsBuilder mipsBuilder = new MipsBuilder(Module.getINSTANCE());
-            mipsBuilder.build();
+            Optimizer optimizer = new Optimizer(Module.getINSTANCE());
+            optimizer.optimize();
+//            MipsBuilder mipsBuilder = new MipsBuilder(Module.getINSTANCE());
+//            mipsBuilder.build();
+//            PrintStream origin = System.out;
+//            System.setOut(new PrintStream("mips.txt"));
+//            MipsFile.getINSTANCE().print();
+//            System.setOut(origin);
         } else {
             PrintStream origin = System.out;
             System.setOut(new PrintStream("error.txt"));

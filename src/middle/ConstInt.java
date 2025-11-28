@@ -7,4 +7,8 @@ public class ConstInt extends Value{
         super(String.valueOf(intValue),IntegerType.i32);
         this.intValue = intValue;
     }
+
+    public int getIntValue() {
+        return intValue;
+    }
 }

@@ -18,4 +18,16 @@ public class MipsFile {
     public void addTextAssembly(TextAssembly textAssembly){
         textAssemblies.add(textAssembly);
     }
+
+    public void print(){
+        System.out.println(".data:");
+        for(DataAssembly dataAssembly : dataAssemblies){
+            dataAssembly.print();
+        }
+        System.out.println();
+        System.out.println(".text:");
+        for(TextAssembly textAssembly : textAssemblies){
+            textAssembly.print();
+        }
+    }
 }

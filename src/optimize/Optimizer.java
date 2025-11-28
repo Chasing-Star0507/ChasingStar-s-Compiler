@@ -8,4 +8,8 @@ public class Optimizer {
     public Optimizer(Module module){
         this.module = module;
     }
+
+    public void optimize(){
+
+    }
 }

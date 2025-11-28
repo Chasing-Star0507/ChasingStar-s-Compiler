@@ -1,8 +1,13 @@
 package middle;
 
+import backed.Register;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class CallInst extends Instruction{
+    private HashSet<Register> registerHashSet = new HashSet<>();
+
     public CallInst(Function calledFunction, ArrayList<Value> parameters) {
         super("", calledFunction.getReturnType(), OperatorType.CALL);
         addOperand(calledFunction);
@@ -12,6 +17,10 @@ public class CallInst extends Instruction{
         if (!calledFunction.getReturnType().equals(IntegerType.VOID)) {
             setName(IRData.getVarName());
         }
+    }
+
+    public HashSet<Register> getActiveReg(){
+        return new HashSet<>(registerHashSet);
     }
 
     public void print(){

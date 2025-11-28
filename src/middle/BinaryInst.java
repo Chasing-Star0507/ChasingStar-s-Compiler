@@ -19,6 +19,10 @@ public class BinaryInst extends Instruction{
         }
     }
 
+    public OperatorType getOperatorType() {
+        return operatorType;
+    }
+
     public Value getOperand1(){
         return getOperands().get(0);
     }

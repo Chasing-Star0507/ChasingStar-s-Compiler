@@ -8,4 +8,8 @@ public class Asciiz extends DataAssembly{
         this.name = name;
         this.content = content.replace("\\0A","\\n");
     }
+
+    public void print(){
+        System.out.println(name + ": .asciiz \"" + content + "\"");
+    }
 }
